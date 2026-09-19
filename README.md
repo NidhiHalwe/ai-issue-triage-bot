@@ -1,17 +1,24 @@
-Act as a Senior DevOps and Backend Software Engineer. I need to build an "AI Issue Triage & Bug-Fix Bot" using Node.js. The goal is to evaluate an LLM's ability to fix bugs in open-source repositories. 
+# 🤖 AI Issue Triage & Bug-Fix Bot
 
-Please generate the complete project structure and code with the following specifications:
+An automated, LLM-powered DevOps tool that integrates with GitHub Webhooks to analyze incoming repository issues, identify root causes, and automatically generate code-patch suggestions using Google's Gemini API. 
 
-1. Tech Stack: Node.js, Express.js (for receiving webhooks), @octokit/rest (for GitHub API interaction), and the '@google/generative-ai' npm package.
-2. Core Logic: 
-   - Create an Express server listening for GitHub webhooks on the /webhook endpoint (handling the issues.opened event).
-   - When a new issue is opened, extract the issue title and body.
-   - Send this data to the Google Gemini API (use the 'gemini-1.5-flash' model) with a strict system prompt instructing it to act as a Senior JavaScript Developer and provide a direct code snippet fix for the bug described.
-   - Use Octokit to automatically post the Gemini model's response as a comment back on that specific GitHub issue.
-3. Environment & DevOps:
-   - Provide a complete .env.example file (needs GITHUB_TOKEN, GEMINI_API_KEY, PORT=3000, WEBHOOK_SECRET).
-   - Generate a production-ready Dockerfile to containerize this Node.js app using a lightweight alpine image (`node:20-alpine`).
-   - Generate a docker-compose.yml file to run this locally on port 3000.
-4. Output Requirements: 
-   - Add basic try-catch blocks for API failures and webhook signature verification.
-   - Provide the complete file structure, package.json dependencies, and the code for index.js, Dockerfile, and docker-compose.yml.
+Designed to streamline developer workflows, reduce manual triage time, and showcase LLM performance in bug-fixing scenarios.
+
+## ✨ Features
+- Automated Issue Triage: Listens to issues.opened events via GitHub Webhooks.
+- LLM-Driven Analysis: Utilizes the Google Gemini API (`gemini-pro`) to analyze bug descriptions and code snippets.
+- Auto-Commenting System: Automatically posts actionable code fixes back to the GitHub issue using @octokit/rest.
+- Environment Agnostic: Easily configurable for local development (via ngrok) or cloud deployment.
+
+## 🛠️ Tech Stack
+- Backend: Node.js, Express.js
+- AI Integration: Google Gemini API (`@google/generative-ai`)
+- GitHub API: Octokit REST API (`@octokit/rest`)
+- Webhooks & Tunneling: GitHub Webhooks, ngrok
+
+## 🚀 Local Setup & Installation
+
+### 1. Clone the Repository
+```bash
+git clone [https://github.com/your-username/ai-issue-triage-bot.git](https://github.com/your-username/ai-issue-triage-bot.git)
+cd ai-issue-triage-bot
