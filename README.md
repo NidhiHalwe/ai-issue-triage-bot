@@ -1,18 +1,17 @@
-# AI Issue Triage & Bug-Fix Bot
+Act as a Senior DevOps and Backend Software Engineer. I need to build an "AI Issue Triage & Bug-Fix Bot" using Node.js. The goal is to evaluate an LLM's ability to fix bugs in open-source repositories. 
 
-A Node.js webhook service that sends newly opened GitHub issues to Gemini and posts the suggested JavaScript fix as an issue comment.
+Please generate the complete project structure and code with the following specifications:
 
-## Setup
-
-1. Copy `.env.example` to `.env` and set the GitHub token, Gemini API key, and webhook secret.
-2. Install dependencies with `npm install`.
-3. Start the service with `npm start`.
-4. Configure a GitHub repository webhook pointing to `/webhook` with `application/json` content type and the same webhook secret.
-
-The service accepts `issues.opened` events and exposes `GET /health` for health checks.
-
-`GEMINI_MODEL` defaults to `gemini-3.6-flash`. Set it in `.env` if you need to use another model available for your API key.
-
-## Docker
-
-Run `docker compose up --build` after creating `.env` from `.env.example`.
+1. Tech Stack: Node.js, Express.js (for receiving webhooks), @octokit/rest (for GitHub API interaction), and the '@google/generative-ai' npm package.
+2. Core Logic: 
+   - Create an Express server listening for GitHub webhooks on the /webhook endpoint (handling the issues.opened event).
+   - When a new issue is opened, extract the issue title and body.
+   - Send this data to the Google Gemini API (use the 'gemini-1.5-flash' model) with a strict system prompt instructing it to act as a Senior JavaScript Developer and provide a direct code snippet fix for the bug described.
+   - Use Octokit to automatically post the Gemini model's response as a comment back on that specific GitHub issue.
+3. Environment & DevOps:
+   - Provide a complete .env.example file (needs GITHUB_TOKEN, GEMINI_API_KEY, PORT=3000, WEBHOOK_SECRET).
+   - Generate a production-ready Dockerfile to containerize this Node.js app using a lightweight alpine image (`node:20-alpine`).
+   - Generate a docker-compose.yml file to run this locally on port 3000.
+4. Output Requirements: 
+   - Add basic try-catch blocks for API failures and webhook signature verification.
+   - Provide the complete file structure, package.json dependencies, and the code for index.js, Dockerfile, and docker-compose.yml.
