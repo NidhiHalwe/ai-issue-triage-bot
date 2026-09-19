@@ -1,4 +1,4 @@
-````markdown
+
 # 🤖 AI Issue Triage & Bug-Fix Bot
 
 An automated, LLM-powered DevOps tool that integrates with GitHub Webhooks to analyze incoming repository issues, identify potential root causes, and generate actionable code-fix suggestions using Google's Gemini API.
