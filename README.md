@@ -46,7 +46,7 @@ Use ngrok to create a secure tunnel to your local server:
 ngrok http 3000
 Copy the forwarding URL (e.g., https://<your-id>.ngrok-free.app).
 ```
-### 6. Configure GitHub Webhook
+## 6. Configure GitHub Webhook
 -Go to your GitHub Repository Settings > Webhooks.
 -Click Add webhook.
 -Payload URL: Paste your ngrok URL and append /webhook (e.g., https://<your-id>.ngrok-free.app/webhook).
