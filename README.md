@@ -599,7 +599,3 @@ If you find this project useful, consider giving the repository a ⭐ on GitHub.
 
 This project is available for educational and development purposes.
 
-````
-
-Ab **writing block ke andar jo poora ` ```markdown ... ``` ` hai**, usko hi copy karke GitHub ke `README.md` mein paste karna hai. `## Features`, `## Architecture`, `-` bullets, code blocks sab waise hi render honge.
-````
